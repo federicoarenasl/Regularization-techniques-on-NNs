@@ -14,3 +14,6 @@ For constructing our Neural Network architectures we use the MLP ML Framework, s
  
  ## A sneak peak at some results
 Our first network, purposedly designed to show bad generalization performance is a Network for 100 Epochs, using Stocahstic Gradient Descent and Adam optimizer with a mini-batch size of 100, with one Affine Layer composed of 100 Hidden Units followed by a ReLu non-linearity, with learnng rate of 0.001 and all biases and weights initialised to 0. The generalization problem is evident as illustrated by the following figure.
+
+![png](Training-Results-Visualizer_files/Training-Results-Visualizer_8_0.png)
+
