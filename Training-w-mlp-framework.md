@@ -540,28 +540,10 @@ export_values(stats_hl_3, keys_hl_3, run_time_hl_3, activation_dict_hl_3, 'hl_3'
     
 
 
-```python
 ### 1.1. Baseline Model
 We now decide to define a Baseline Model that counts with no Regularisation techinques. We will compare all models to this one, in the hopes of making the improvements evident as we employ more effective Regularisation techniques.
-```
 
-    Epoch 1: 4.7s to complete
-        error(train)=6.75e-01, acc(train)=7.85e-01, error(valid)=7.04e-01, acc(valid)=7.78e-01
-
-	.
-	.
-	.
-    Epoch 100: 5.5s to complete
-        error(train)=1.28e-01, acc(train)=9.52e-01, error(valid)=1.45e+00, acc(valid)=8.24e-01
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_19_302.png)
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_19_303.png)
-    
-
-
+```python
 # Reset Data Providor
 train_data.reset()
 valid_data.reset()
@@ -601,44 +583,44 @@ stats_bl, keys_bl, runtime_bl, activation_dict_bl = main_train_model_and_plot_st
 
 # Output results for further anlysis
 export_values(stats_bl, keys_bl, runtime_bl, activation_dict_bl, 'bl')
-
-
+```
 ```python
+
+    Epoch 1: 4.7s to complete
+        error(train)=6.75e-01, acc(train)=7.85e-01, error(valid)=7.04e-01, acc(valid)=7.78e-01
+
+	.
+	.
+	.
+    Epoch 100: 5.5s to complete
+        error(train)=1.28e-01, acc(train)=9.52e-01, error(valid)=1.45e+00, acc(valid)=8.24e-01
+```
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_19_302.png)
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_19_303.png)
+    
+
 ## 2. Experiments to mitigate the problem using Dropout 
 We now look at the effect of Dropout in our Baseline model. For this, we define three models with different Dropout inclusion probabilites at each time.
-```
-
-from mlp.layers import DropoutLayer
-from mlp.penalties import L1Penalty, L2Penalty
-
 
 ```python
+from mlp.layers import DropoutLayer
+from mlp.penalties import L1Penalty, L2Penalty
+```
+
+
+
 ### Model 1
 Number of ReLu hidden units: **128**
 
 Number of Hidden layers:**3**
 
 Dropout of **0.2** in all Hidden Layers
-```
 
 
-    Epoch 1: 6.6s to complete
-        error(train)=3.50e+00, acc(train)=5.62e-02, error(valid)=3.50e+00, acc(valid)=5.65e-02
-	.
-	.
-	.
-    Epoch 100: 8.3s to complete
-        error(train)=2.45e+00, acc(train)=2.74e-01, error(valid)=2.48e+00, acc(valid)=2.66e-01
-
-
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_23_302.png)
-    
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_23_303.png)
-    
-
-
+```python
 # Reset Data Providor
 train_data.reset()
 valid_data.reset()
@@ -684,36 +666,34 @@ stats_d_02, keys_d_02, runtime_d_02, activation_dict_d_02 = main_train_model_and
 
 # Output results for further anlysis
 export_values(stats_d_02, keys_d_02, runtime_d_02, activation_dict_d_02, 'd_02')
+```
 
 
-```python
+    Epoch 1: 6.6s to complete
+        error(train)=3.50e+00, acc(train)=5.62e-02, error(valid)=3.50e+00, acc(valid)=5.65e-02
+	.
+	.
+	.
+    Epoch 100: 8.3s to complete
+        error(train)=2.45e+00, acc(train)=2.74e-01, error(valid)=2.48e+00, acc(valid)=2.66e-01
+
+
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_23_302.png)
+    
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_23_303.png)
+    
+
 ### Model 2 
 Number of ReLu hidden units: **128**
 
 Number of Hidden layers:**3**
 
 Dropout of **0.5** in all Hidden Layers
-```
-
-    Epoch 1: 6.1s to complete
-        error(train)=2.14e+00, acc(train)=3.65e-01, error(valid)=2.14e+00, acc(valid)=3.64e-01
-	.
-	.
-	.
-    Epoch 100: 7.8s to complete
-        error(train)=9.79e-01, acc(train)=6.96e-01, error(valid)=1.05e+00, acc(valid)=6.79e-01
 
 
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_25_302.png)
-    
-
-
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_25_303.png)
-    
-
-
+```python
 # Reset Data Providor
 train_data.reset()
 valid_data.reset()
@@ -759,42 +739,34 @@ stats_d_05, keys_d_05, runtime_d_05, activation_dict_d_05 = main_train_model_and
 
 # Output results for further anlysis
 export_values(stats_d_05, keys_d_05, runtime_d_05, activation_dict_d_05, 'd_05')
+```
+    Epoch 1: 6.1s to complete
+        error(train)=2.14e+00, acc(train)=3.65e-01, error(valid)=2.14e+00, acc(valid)=3.64e-01
+	.
+	.
+	.
+    Epoch 100: 7.8s to complete
+        error(train)=9.79e-01, acc(train)=6.96e-01, error(valid)=1.05e+00, acc(valid)=6.79e-01
 
 
-```python
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_25_302.png)
+    
+
+
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_25_303.png)
+    
+
 ### Model 3
 Number of ReLu hidden units: **128**
 
 Number of Hidden layers:**3**
 
 Dropout  **in a decreasing fashion** 0.8, 0.5, 0.2
-```
 
 
-    Epoch 1: 7.4s to complete
-        error(train)=2.39e+00, acc(train)=2.85e-01, error(valid)=2.39e+00, acc(valid)=2.86e-01
-	.
-	.
-	.
-    Epoch 100: 8.1s to complete
-        error(train)=9.21e-01, acc(train)=7.11e-01, error(valid)=1.04e+00, acc(valid)=6.88e-01
-
-
-    
-
-
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_27_302.png)
-    
-
-
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_27_303.png)
-    
-
-
+```python
 # Reset Data Providor
 train_data.reset()
 valid_data.reset()
@@ -845,43 +817,39 @@ export_values(stats_d_decf, keys_d_decf, runtime_d_decf, activation_d_decf, 'd_d
 We now use L2 Regularisation and L1 Regularisation to mitigate the problem.
 
 ## L2 Regularisation
+```
+    Epoch 1: 7.4s to complete
+        error(train)=2.39e+00, acc(train)=2.85e-01, error(valid)=2.39e+00, acc(valid)=2.86e-01
+	.
+	.
+	.
+    Epoch 100: 8.1s to complete
+        error(train)=9.21e-01, acc(train)=7.11e-01, error(valid)=1.04e+00, acc(valid)=6.88e-01
 
 
-```python
+    
+
+
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_27_302.png)
+    
+
+
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_27_303.png)
+    
+
 ### Model 1
 Number of ReLu hidden units: **128**
 
 Number of Hidden layers:**3**
 
 L2 regularisation penalty of  **0.0001** in all layers
-```
 
-
-    Epoch 1: 5.4s to complete
-        error(train)=6.99e-01, acc(train)=7.72e-01, error(valid)=7.19e-01, acc(valid)=7.67e-01
-
-	.
-	.
-	.
-    Epoch 100: 12.0s to complete
-        error(train)=1.51e-01, acc(train)=9.39e-01, error(valid)=6.67e-01, acc(valid)=8.40e-01
-
-
-    
-
-
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_31_302.png)
-    
-
-
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_31_303.png)
-    
-
-
+  
+```python
 # Reset Data Providor
 train_data.reset()
 valid_data.reset()
@@ -921,42 +889,37 @@ stats_L2_1e_4, keys_L2_1e_4, runtime_L2_1e_4, activation_L2_1e_4 = main_train_mo
 
 # Output results for further anlysis
 export_values(stats_L2_1e_4, keys_L2_1e_4, runtime_L2_1e_4, activation_L2_1e_4, 'L2_1e_4')
+```
+
+    Epoch 1: 5.4s to complete
+        error(train)=6.99e-01, acc(train)=7.72e-01, error(valid)=7.19e-01, acc(valid)=7.67e-01
+
+	.
+	.
+	.
+    Epoch 100: 12.0s to complete
+        error(train)=1.51e-01, acc(train)=9.39e-01, error(valid)=6.67e-01, acc(valid)=8.40e-01
 
 
-```python
+    
+
+
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_31_302.png)
+    
+
+
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_31_303.png)
+
 ### Model 2
 Number of ReLu hidden units: **128**
 
 Number of Hidden layers:**3**
-
-L2 regularisation penalty of  **0.01** in all layers
-```
-
-
-    Epoch 1: 4.9s to complete
-        error(train)=1.01e+00, acc(train)=7.01e-01, error(valid)=1.02e+00, acc(valid)=6.98e-01
-	.
-	.
-	.
-    Epoch 100: 5.8s to complete
-        error(train)=7.75e-01, acc(train)=7.67e-01, error(valid)=7.90e-01, acc(valid)=7.63e-01
-
-
-    
-
-
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_33_302.png)
-    
-
-
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_33_303.png)
-    
-
-
+  
+```python
 # Reset Data Providor
 train_data.reset()
 valid_data.reset()
@@ -996,41 +959,37 @@ stats_L2_1e_2, keys_L2_1e_2, runtime_L2_1e_2, activation_L2_1e_2 = main_train_mo
 
 # Output results for further anlysis
 export_values(stats_L2_1e_2, keys_L2_1e_2, runtime_L2_1e_2, activation_L2_1e_2, 'L2_1e_2')
+```
+
+L2 regularisation penalty of  **0.01** in all layers
+
+    Epoch 1: 4.9s to complete
+        error(train)=1.01e+00, acc(train)=7.01e-01, error(valid)=1.02e+00, acc(valid)=6.98e-01
+	.
+	.
+	.
+    Epoch 100: 5.8s to complete
+        error(train)=7.75e-01, acc(train)=7.67e-01, error(valid)=7.90e-01, acc(valid)=7.63e-01
 
 
-```python
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_33_302.png)
+    
+
+
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_33_303.png)
+
 ### Model 3
 Number of ReLu hidden units: **128**
 
 Number of Hidden layers:**3**
 
 L2 regularisation penalty in  **increasing fashion** of 0.0001, 0.01, 0.1
-```
 
-    Epoch 1: 4.9s to complete
-        error(train)=8.95e-01, acc(train)=7.32e-01, error(valid)=9.11e-01, acc(valid)=7.27e-01
-	.
-	.
-	.
-    Epoch 100: 10.3s to complete
-        error(train)=4.41e-01, acc(train)=8.53e-01, error(valid)=5.20e-01, acc(valid)=8.28e-01
-
-
-    
-
-
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_35_302.png)
-    
-
-
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_35_303.png)
-    
-
-
+  
+```python
 # Reset Data Providor
 train_data.reset()
 valid_data.reset()
@@ -1070,45 +1029,40 @@ stats_L2_incf, keys_L2_incf, runtime_L2_incf, activation_L2_incf = main_train_mo
 
 # Output results for further anlysis
 export_values(stats_L2_incf, keys_L2_incf, runtime_L2_incf, activation_L2_incf, 'L2_incf')
+```
+    Epoch 1: 4.9s to complete
+        error(train)=8.95e-01, acc(train)=7.32e-01, error(valid)=9.11e-01, acc(valid)=7.27e-01
+	.
+	.
+	.
+    Epoch 100: 10.3s to complete
+        error(train)=4.41e-01, acc(train)=8.53e-01, error(valid)=5.20e-01, acc(valid)=8.28e-01
+
+
+    
+
+
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_35_302.png)
+    
+
+
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_35_303.png)
 
 ## L1 Regularisation
 
 
-```python
 ### Model 1
 Number of ReLu hidden units: **128**
 
 Number of Hidden layers:**3**
 
 L2 regularisation penalty of  **0.0001** in all layers
-```
 
-
-    Epoch 1: 6.6s to complete
-        error(train)=7.36e-01, acc(train)=7.65e-01, error(valid)=7.50e-01, acc(valid)=7.57e-01
-
-	.
-	.
-	.
-    Epoch 100: 6.5s to complete
-        error(train)=3.26e-01, acc(train)=8.80e-01, error(valid)=4.33e-01, acc(valid)=8.52e-01
-
-
-    
-
-
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_38_302.png)
-    
-
-
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_38_303.png)
-    
-
-
+```python
 # Reset Data Providor
 train_data.reset()
 valid_data.reset()
@@ -1148,41 +1102,41 @@ stats_L1_1e_4, keys_L1_1e_4, runtime_L1_1e_4, activation_L1_1e_4 = main_train_mo
 
 # Output results for further anlysis
 export_values(stats_L1_1e_4, keys_L1_1e_4, runtime_L1_1e_4, activation_L1_1e_4, 'L1_1e_4')
+```
+
+    Epoch 1: 6.6s to complete
+        error(train)=7.36e-01, acc(train)=7.65e-01, error(valid)=7.50e-01, acc(valid)=7.57e-01
+
+	.
+	.
+	.
+    Epoch 100: 6.5s to complete
+        error(train)=3.26e-01, acc(train)=8.80e-01, error(valid)=4.33e-01, acc(valid)=8.52e-01
 
 
-```python
+    
+
+
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_38_302.png)
+    
+
+
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_38_303.png)
+    
+
 ### Model 2
 Number of ReLu hidden units: **128**
 
 Number of Hidden layers:**3**
 
 L2 regularisation penalty of  **0.01** in all layers
-```
-
-    Epoch 1: 6.4s to complete
-        error(train)=3.85e+00, acc(train)=2.17e-02, error(valid)=3.85e+00, acc(valid)=1.96e-02
-	.
-	.
-	.
-    Epoch 100: 7.0s to complete
-        error(train)=3.85e+00, acc(train)=2.17e-02, error(valid)=3.85e+00, acc(valid)=1.98e-02
-
-
     
 
-
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_40_302.png)
-    
-
-
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_40_303.png)
-    
-
-
+```python
 # Reset Data Providor
 train_data.reset()
 valid_data.reset()
@@ -1222,42 +1176,39 @@ stats_L1_1e_2, keys_L1_1e_2, runtime_L1_1e_2, activation_L1_1e_2 = main_train_mo
 
 # Output results for further anlysis
 export_values(stats_L1_1e_2, keys_L1_1e_2, runtime_L1_1e_2, activation_L1_1e_2, 'L1_1e_2')
+```
+
+    Epoch 1: 6.4s to complete
+        error(train)=3.85e+00, acc(train)=2.17e-02, error(valid)=3.85e+00, acc(valid)=1.96e-02
+	.
+	.
+	.
+    Epoch 100: 7.0s to complete
+        error(train)=3.85e+00, acc(train)=2.17e-02, error(valid)=3.85e+00, acc(valid)=1.98e-02
 
 
-```python
+    
+
+
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_40_302.png)
+    
+
+
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_40_303.png)
+
 ### Model 3
 Number of ReLu hidden units: **128**
 
 Number of Hidden layers:**3**
 
 L2 regularisation penalty in  **increasing fashion** of 0.0001, 0.01, 0.1
-```
 
-    Epoch 1: 6.5s to complete
-        error(train)=3.85e+00, acc(train)=2.15e-02, error(valid)=3.85e+00, acc(valid)=2.01e-02
-
-	.
-	.
-	.
-    Epoch 100: 6.3s to complete
-        error(train)=3.85e+00, acc(train)=2.17e-02, error(valid)=3.85e+00, acc(valid)=2.01e-02
-
-
-    
-
-
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_42_302.png)
-    
-
-
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_42_303.png)
-    
-
-
+   
+```python
 # Reset Data Providor
 train_data.reset()
 valid_data.reset()
@@ -1297,26 +1248,15 @@ stats_L1_incf, keys_L1_incf, runtime_L1_incf, activation_L1_incf = main_train_mo
 
 # Output results for further anlysis
 export_values(stats_L1_incf, keys_L1_incf, runtime_L1_incf, activation_L1_incf, 'L1_incf')
-
-## 4. Experiments to mitigate the problem using L1 Regularisation and Dropout
-For this part of the study, we use L1 Regularisation, since it shows better performance than L2 Regularisation, and we combine it with Dropout to investigate its effect on the generalization performance.
-
-
-```python
-### Model 1
-Number of ReLu hidden units: **128**
-
-Number of Hidden layers:**3**
-
-Dropout of **0.2** and L2 regularisation penalty of **0.001**
 ```
 
-    Epoch 1: 9.3s to complete
-        error(train)=3.85e+00, acc(train)=2.14e-02, error(valid)=3.85e+00, acc(valid)=2.19e-02
+    Epoch 1: 6.5s to complete
+        error(train)=3.85e+00, acc(train)=2.15e-02, error(valid)=3.85e+00, acc(valid)=2.01e-02
+
 	.
 	.
 	.
-    Epoch 100: 8.4s to complete
+    Epoch 100: 6.3s to complete
         error(train)=3.85e+00, acc(train)=2.17e-02, error(valid)=3.85e+00, acc(valid)=2.01e-02
 
 
@@ -1325,16 +1265,26 @@ Dropout of **0.2** and L2 regularisation penalty of **0.001**
 
 
     
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_45_302.png)
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_42_302.png)
     
 
 
 
     
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_45_303.png)
-    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_42_303.png)
+
+## 4. Experiments to mitigate the problem using L1 Regularisation and Dropout
+For this part of the study, we use L1 Regularisation, since it shows better performance than L2 Regularisation, and we combine it with Dropout to investigate its effect on the generalization performance.
 
 
+### Model 1
+Number of ReLu hidden units: **128**
+
+Number of Hidden layers:**3**
+
+Dropout of **0.2** and L2 regularisation penalty of **0.001**
+
+```python
 # Reset Data Providor
 train_data.reset()
 valid_data.reset()
@@ -1380,43 +1330,38 @@ stats_d02_L2_1e3, keys_d02_L2_1e3, runtime_d02_L2_1e3, activation_d02_L2_1e3 = m
 
 # Output results for further anlysis
 export_values(stats_d02_L2_1e3, keys_d02_L2_1e3, runtime_d02_L2_1e3, activation_d02_L2_1e3, 'd08_L1_1e2')
+```
+    Epoch 1: 9.3s to complete
+        error(train)=3.85e+00, acc(train)=2.14e-02, error(valid)=3.85e+00, acc(valid)=2.19e-02
+	.
+	.
+	.
+    Epoch 100: 8.4s to complete
+        error(train)=3.85e+00, acc(train)=2.17e-02, error(valid)=3.85e+00, acc(valid)=2.01e-02
 
 
-```python
+    
+
+
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_45_302.png)
+    
+
+
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_45_303.png)
+    
+
 ### Model 2
 Number of ReLu hidden units: **128**
 
 Number of Hidden layers:**3**
 
 Dropout of **0.5** and L2 regularisation penalty of **0.01**
-```
 
-
-    Epoch 1: 7.7s to complete
-        error(train)=2.50e+00, acc(train)=2.62e-01, error(valid)=2.49e+00, acc(valid)=2.63e-01
-
-	.
-	.
-	.
-    Epoch 100: 7.9s to complete
-        error(train)=1.21e+00, acc(train)=6.27e-01, error(valid)=1.23e+00, acc(valid)=6.21e-01
-
-
-    
-
-
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_47_302.png)
-    
-
-
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_47_303.png)
-    
-
-
+```python
 # Reset Data Providor
 train_data.reset()
 valid_data.reset()
@@ -1462,41 +1407,42 @@ stats_d05_L2_1e2, keys_d05_L2_1e2, runtime_d05_L2_1e2, activation_d05_L2_1e2 = m
 
 # Output results for further anlysis
 export_values(stats_d05_L2_1e2, keys_d05_L2_1e2, runtime_d05_L2_1e2, activation_d05_L2_1e2, 'd05_L1_1e4')
+```
 
 
-```python
+    Epoch 1: 7.7s to complete
+        error(train)=2.50e+00, acc(train)=2.62e-01, error(valid)=2.49e+00, acc(valid)=2.63e-01
+
+	.
+	.
+	.
+    Epoch 100: 7.9s to complete
+        error(train)=1.21e+00, acc(train)=6.27e-01, error(valid)=1.23e+00, acc(valid)=6.21e-01
+
+
+    
+
+
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_47_302.png)
+    
+
+
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_47_303.png)
+    
+
 ### Model 3
 Number of ReLu hidden units: **128**
 
 Number of Hidden layers:**3**
 
 Dropout **in a decreasing fashion** and L2 regularisation **in an increasing fashion**
-```
+   
 
-    Epoch 1: 8.6s to complete
-        error(train)=2.42e+00, acc(train)=2.98e-01, error(valid)=2.43e+00, acc(valid)=2.97e-01
-	.
-	.
-	.
-    Epoch 100: 7.7s to complete
-        error(train)=9.90e-01, acc(train)=6.92e-01, error(valid)=1.04e+00, acc(valid)=6.78e-01
-
-
-    
-
-
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_49_302.png)
-    
-
-
-
-    
-![png](Training-w-mlp-framework_files/Training-w-mlp-framework_49_303.png)
-    
-
-
+```python
 # Reset Data Providor
 train_data.reset()
 valid_data.reset()
@@ -1542,15 +1488,31 @@ stats_ddecf_L2incf, keys_ddecf_L2incf, runtime_ddecf_L2incf, activation_ddecf_L2
 
 # Output results for further anlysis
 export_values(stats_ddecf_L2incf, keys_ddecf_L2incf, runtime_ddecf_L2incf, activation_ddecf_L2incf, 'ddecf_L1incf')
+```
+    Epoch 1: 8.6s to complete
+        error(train)=2.42e+00, acc(train)=2.98e-01, error(valid)=2.43e+00, acc(valid)=2.97e-01
+	.
+	.
+	.
+    Epoch 100: 7.7s to complete
+        error(train)=9.90e-01, acc(train)=6.92e-01, error(valid)=1.04e+00, acc(valid)=6.78e-01
 
 
-```python
+    
+
+
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_49_302.png)
+    
+
+
+
+    
+![png](Training-w-mlp-framework_files/Training-w-mlp-framework_49_303.png)
+
 ## 5. Training and testing the final model
 We choose **Model 2** form the Dropout + L1 Regularisation to report our best results. We load the test data, and provide this one during training instead of the validation data
-```
-
-    KeysView(<numpy.lib.npyio.NpzFile object at 0x2afe0fc42340>)
-
 
 
 ```python
