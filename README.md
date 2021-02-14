@@ -19,5 +19,11 @@ Our first network, purposedly designed to show bad generalization performance is
 <img  src="Training-Results-Visualizer_files/Training-Results-Visualizer_8_0.png">
 </p>
 
-![png](Training-Results-Visualizer_files/Training-Results-Visualizer_8_0.png)
+After a thorough hyperparameter search, we are able to find a model that, solely with regularisation, (1) greatly lower the Train/Test Error Gap from a 1.42 to a 0.13 Gap. Lower the Train/Test Accuracy Gap which went from a 14% to a 3.57% Accuracy Gap. Additionally, (2) we were able to increase the Test Accuracy from 81.4% to 84.03%. The Final Model is able to stably converge to a local minimum after 15 Epochs of training:
+
+<p align="center">
+<img  src="Training-Results-Visualizer_files/Training-Results-Visualizer_74_0.png">
+</p>
+
+
 
